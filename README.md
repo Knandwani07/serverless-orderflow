@@ -41,16 +41,7 @@ To build, understand, and work with this project, familiarity with the following
 - **AWS Step Functions** – Define workflows using a JSON-based state machine.
 - **IAM Roles and Permissions** – Securely allow Step Functions to invoke Lambda functions.
 - **AWS Console / CLI** – For deploying and testing your services.
-- *(Optional but useful)*: **AWS SAM** or **Serverless Framework** for Infrastructure as Code (IaC).
 
-## 🔧 Basic Setup
-
-1. **Write Lambda functions for each task in the order flow** (functions are provided).
-2. **Create the Step Function definition** (`orderProcessingStateMachine.json`).
-3. **Deploy the Lambda functions** using AWS Console or CLI.
-4. **Update the Step Function with actual Lambda ARNs** (Amazon Resource Names).
-5. **Start the workflow execution** using test input (simulating an order).
-6. **Monitor the execution** via the Step Functions console or CloudWatch logs.
 
 ## 🧠 What You’ll Learn
 
@@ -67,10 +58,3 @@ This project demonstrates how to build modern, scalable, and resilient systems w
 
 **Serverless isn't just the future. It's the now.**
 
-## 🚀 Deploying
-
-To deploy this solution, you can use AWS Console or CLI:
-
-1. **Deploy Lambda functions** (either manually or using tools like AWS SAM).
-2. **Define your Step Function** with the Lambda ARNs.
-3. **Test with simulated inputs** and monitor the process.
