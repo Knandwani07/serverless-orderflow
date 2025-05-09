@@ -1,0 +1,42 @@
+# AWS Credentials
+.aws/
+*.credentials
+*.env
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python dependencies
+__pycache__/
+*.py[cod]
+venv/
+.env/
+
+# Serverless Framework / AWS SAM artifacts
+.serverless/
+.aws-sam/
+
+# IDE files
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Deployment packages
+*.zip
+*.tar.gz
+*.tgz
+
+# Log files
+*.log
+*.log.*
+
+# Temporary files
+*.swp
+*.swo
