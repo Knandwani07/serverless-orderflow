@@ -1,1 +1,53 @@
-
+{
+    "Comment": "A simple order processing workflow",
+    "StartAt": "Check Inventory",
+    "States": {
+      "Check Inventory": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-east-1:211125437318:function:checkInventory",
+        "Next": "Is In Stock?"
+      },
+      "Is In Stock?": {
+        "Type": "Choice",
+        "Choices": [
+          {
+            "Variable": "$.inStock",
+            "BooleanEquals": true,
+            "Next": "Process Payment"
+          }
+        ],
+        "Default": "Out of Stock"
+      },
+      "Process Payment": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-east-1:211125437318:function:processPayment",
+        "Next": "Payment Successful?"
+      },
+      "Payment Successful?": {
+        "Type": "Choice",
+        "Choices": [
+          {
+            "Variable": "$.paymentSuccessful",
+            "BooleanEquals": true,
+            "Next": "Update Order Status"
+          }
+        ],
+        "Default": "Payment Failed"
+      },
+      "Update Order Status": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-east-1:211125437318:function:updateOrderStatus",
+        "End": true
+      },
+      "Out of Stock": {
+        "Type": "Fail",
+        "Cause": "Item is out of stock",
+        "Error": "OutOfStockError"
+      },
+      "Payment Failed": {
+        "Type": "Fail",
+        "Cause": "Payment processing failed",
+        "Error": "PaymentError"
+      }
+    }
+  }
